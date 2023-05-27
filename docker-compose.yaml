@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  temporal:
+    image: temporalio/server:1.20.3
+    entrypoint: temporal
+    command:
+      - server
+      - start-dev
+      - --ip=0.0.0.0
+      - --db-filename=/var/temporal/temporal.sqlite
+      - --log-format=pretty
+    ports:
+      - 127.0.0.1:7233:7233
+      - 127.0.0.1:8233:8233
+    volumes:
+      - $PWD/var/temporal:/var/temporal

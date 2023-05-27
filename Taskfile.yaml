@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  BUILD_DIR: build
+
+tasks:
+  build:
+    cmds:
+      - cmd: mkdir -p {{.BUILD_DIR}}
+        silent: true
+      - go build -o {{.BUILD_DIR}}/ ./cmd/worker/
+    sources:
+      - "go.*"
+      - "*.go"
+      - "**/*.go"
+
+  run:
+    deps: [build]
+    cmds:
+      - "{{.BUILD_DIR}}/worker"

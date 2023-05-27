@@ -14,7 +14,28 @@ The project is built using the [Go programming language](https://go.dev/) and re
 For brevity, the project only supports Kubernetes clusters running on AWS, but a significant part of the upgrade flow is vendor agnostic,
 so adding support for other cloud providers is relatively easy.
 
-
 ## Architecture
 
 TBD
+
+## Setup
+
+For the best developer experience, install [Nix](https://nixos.org/download.html) and [direnv](https://direnv.net/docs/installation.html).
+
+Start the Temporal server:
+
+```shell
+docker-compose up -d
+```
+
+Check if Temporal is accessible:
+
+```shell
+tctl namespace list
+```
+
+Start the worker (in a separate shell):
+
+```shell
+task run --watch
+```
