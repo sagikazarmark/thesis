@@ -11,8 +11,8 @@ and some of the final processes explained [here](https://banzaicloud.com/blog/ku
 
 The project is built using the [Go programming language](https://go.dev/) and relies heavily on [Temporal](https://temporal.io/) for resilient workflow execution.
 
-For brevity, the project only supports Kubernetes clusters running on AWS, but a significant part of the upgrade flow is vendor agnostic,
-so adding support for other cloud providers is relatively easy.
+For brevity, the project only supports Kubernetes clusters running on AWS (more specifically, [EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) clusters),
+but a significant part of the upgrade flow is vendor agnostic, so adding support for other cloud providers is relatively easy.
 
 ## Architecture
 
