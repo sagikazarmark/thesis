@@ -32,6 +32,9 @@
             enterShell = ''
               go version
             '';
+
+            # https://github.com/cachix/devenv/issues/528#issuecomment-1556108767
+            containers = pkgs.lib.mkForce { };
           };
 
           ci = devenv.shells.default;
