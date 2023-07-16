@@ -21,6 +21,7 @@
             go-task
 
             temporal-cli
+            awscli2
           ];
 
           languages = {
