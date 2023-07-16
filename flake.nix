@@ -15,22 +15,26 @@
 
       systems = [ "x86_64-linux" "aarch64-darwin" ];
 
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        devenv.shells.default = {
-          packages = with pkgs; [
-            go-task
+      perSystem = { config, self', inputs', pkgs, system, ... }: rec {
+        devenv.shells = {
+          default = {
+            packages = with pkgs; [
+              go-task
 
-            temporal-cli
-            awscli2
-          ];
+              temporal-cli
+              awscli2
+            ];
 
-          languages = {
-            go.enable = true;
+            languages = {
+              go.enable = true;
+            };
+
+            enterShell = ''
+              go version
+            '';
           };
 
-          enterShell = ''
-            go version
-          '';
+          ci = devenv.shells.default;
         };
       };
     };
