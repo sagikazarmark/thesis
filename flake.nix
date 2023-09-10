@@ -18,20 +18,22 @@
       perSystem = { config, self', inputs', pkgs, system, ... }: rec {
         devenv.shells = {
           default = {
+            languages = {
+              go.enable = true;
+            };
+
             packages = with pkgs; [
               go-task
 
               temporal-cli
               awscli2
+
+              kubectl
             ];
 
-            languages = {
-              go.enable = true;
+            env = {
+              KUBECONFIG = "${config.devenv.shells.default.env.DEVENV_STATE}/kube/config";
             };
-
-            enterShell = ''
-              go version
-            '';
 
             # https://github.com/cachix/devenv/issues/528#issuecomment-1556108767
             containers = pkgs.lib.mkForce { };

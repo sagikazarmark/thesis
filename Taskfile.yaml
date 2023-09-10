@@ -18,3 +18,11 @@ tasks:
     deps: [build]
     cmds:
       - "{{.BUILD_DIR}}/worker"
+
+  download-cftemplates:
+    cmds:
+      # https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html
+      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml -o pkg/cftemplates/vpc.yaml
+
+      # https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
+      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml -o pkg/cftemplates/nodegroup.yaml
