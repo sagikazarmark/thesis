@@ -1,11 +1,11 @@
 package main
 
 import (
+	"log/slog"
 	"os"
 
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"
-	"golang.org/x/exp/slog"
 )
 
 func main() {

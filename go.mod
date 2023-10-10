@@ -1,11 +1,8 @@
 module github.com/sagikazarmark/thesis
 
-go 1.20
+go 1.21
 
-require (
-	go.temporal.io/sdk v1.25.0
-	golang.org/x/exp v0.0.0-20230522175609-2e198f4a06a1
-)
+require go.temporal.io/sdk v1.25.0
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

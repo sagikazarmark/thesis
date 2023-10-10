@@ -1,6 +1,4 @@
 {
-  description = "My thesis";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -20,6 +18,7 @@
           default = {
             languages = {
               go.enable = true;
+              go.package = pkgs.go_1_21;
             };
 
             packages = with pkgs; [
