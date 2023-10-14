@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-
 
 permissions:
   contents: read
@@ -66,16 +65,16 @@ jobs:
       - name: Dev shell
         run: nix develop --impure
 
-  # artifacts:
-  #   name: Artifacts
-  #   uses: ./.github/workflows/artifacts.yaml
-  #   with:
-  #     publish: ${{ github.event_name == 'push' }}
-  #   permissions:
-  #     contents: read
-  #     packages: write
-  #     id-token: write
-  #     security-events: write
+  artifacts:
+    name: Artifacts
+    uses: ./.github/workflows/artifacts.yaml
+    with:
+      publish: ${{ github.event_name == 'push' }}
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+      security-events: write
 
   dependency-review:
     name: Dependency review

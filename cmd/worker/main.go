@@ -16,7 +16,7 @@ import (
 func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
 
-	logger.Info("starting worker")
+	logger.Info("starting worker", slog.String("version", version), slog.String("revision", version), slog.String("revisionDate", version))
 
 	temporalClient, err := client.Dial(client.Options{
 		HostPort: client.DefaultHostPort,
