@@ -1,0 +1,17 @@
+{
+    "Cluster": {
+        "Name": "mark-1",
+        "Cloud": {
+            "RoleARN": "arn:aws:iam::966492123112:role/AmazonEKSClusterRole"
+        },
+        "Kubernetes": {
+            "Version": "1.27"
+        },
+        "NodeGroups": [
+            {
+                "Name": "ng-1",
+                "KeyName": "mark"
+            }
+        ]
+    }
+}

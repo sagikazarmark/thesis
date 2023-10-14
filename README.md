@@ -78,3 +78,26 @@ Start the worker (in a separate shell):
 ```shell
 task run --watch
 ```
+
+## Usage
+
+The primary purpose of the project is to demonstrate Kubernetes cluster upgrades on EKS.
+
+That however requires a running EKS cluster.
+
+Creating one manually is possible by following [this](./docs/create-eks-cluster.md) document.
+
+It's much easier to use the provided Temporal workflow:
+
+```console
+$ tctl wf start --tq thesis --wt "CreateCluster" --if examples/cluster.json
+```
+
+> [!NOTE]
+> Make sure the global account prerequisites described [here](./docs/create-eks-cluster.md) are met.
+
+Similarly, you can also delete a cluster using the following command:
+
+```console
+$ tctl wf start --tq thesis --wt "DeleteCluster" --if examples/cluster.json
+```
