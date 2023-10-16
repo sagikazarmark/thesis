@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go v1.44.213
 	github.com/aws/aws-sdk-go-v2 v1.21.2
 	github.com/aws/aws-sdk-go-v2/config v1.18.45
-	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.34.7
+	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.34.8
 	github.com/aws/aws-sdk-go-v2/service/eks v1.29.7
 	github.com/aws/smithy-go v1.15.0
 	go.temporal.io/sdk v1.25.0
