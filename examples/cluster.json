@@ -10,7 +10,10 @@
         "NodeGroups": [
             {
                 "Name": "ng-1",
-                "KeyName": "mark"
+                "KeyName": "mark",
+                "Kubernetes": {
+                    "Version": "1.26"
+                }
             }
         ]
     }

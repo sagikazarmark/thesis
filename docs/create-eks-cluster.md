@@ -131,7 +131,7 @@ Also, the cluster upgrade process in my thesis is a lot more flexible compared t
 hence we create self-managed nodes.
 
 ```shell
-aws cloudformation create-stack --stack-name $CLUSTER_NAME-ng1 --template-body file://etc/aws/eks-nodegroup.yaml --capabilities CAPABILITY_IAM --parameters ParameterKey=ClusterName,ParameterValue=$CLUSTER_NAME ParameterKey=ClusterControlPlaneSecurityGroup,ParameterValue=$EKS_CLUSTER_SECURITY_GROUPS ParameterKey=NodeGroupName,ParameterValue=$CLUSTER_NAME-ng1 ParameterKey=KeyName,ParameterValue=\"$AWS_KEY_PAIR\" ParameterKey=VpcId,ParameterValue=$EKS_CLUSTER_VPC_ID ParameterKey=Subnets,ParameterValue=\"$EKS_CLUSTER_SUBNET_IDS\"
+aws cloudformation create-stack --stack-name $CLUSTER_NAME-ng1 --template-body file://etc/aws/eks-nodegroup.yaml --capabilities CAPABILITY_IAM --parameters ParameterKey=ClusterName,ParameterValue=$CLUSTER_NAME ParameterKey=ClusterControlPlaneSecurityGroup,ParameterValue=$EKS_CLUSTER_SECURITY_GROUPS ParameterKey=NodeGroupName,ParameterValue=$CLUSTER_NAME-ng1 ParameterKey=KeyName,ParameterValue=\"$AWS_KEY_PAIR\" ParameterKey=VpcId,ParameterValue=$EKS_CLUSTER_VPC_ID ParameterKey=Subnets,ParameterValue=\"$EKS_CLUSTER_SUBNET_IDS\" ParameterKey=NodeImageIdSSMParam,ParameterValue=/aws/service/eks/optimized-ami/1.26/amazon-linux-2/recommended/image_id
 ```
 
 Wait for the CloudFormation stack to become ready:

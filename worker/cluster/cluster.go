@@ -9,7 +9,7 @@ import (
 type Cluster struct {
 	Name       string
 	Cloud      Cloud
-	Kubernetes Kubernetes
+	Kubernetes ClusterKubernetes
 
 	NodeGroups []NodeGroup
 }
@@ -48,11 +48,11 @@ func (c Cloud) Validate() error {
 	return nil
 }
 
-type Kubernetes struct {
+type ClusterKubernetes struct {
 	Version string
 }
 
-func (k Kubernetes) Validate() error {
+func (k ClusterKubernetes) Validate() error {
 	if k.Version == "" {
 		return errors.New("version is required")
 	}
@@ -61,8 +61,9 @@ func (k Kubernetes) Validate() error {
 }
 
 type NodeGroup struct {
-	Name    string
-	KeyName string
+	Name       string
+	KeyName    string
+	Kubernetes NodeGroupKubernetes
 }
 
 func (ng NodeGroup) Validate() error {
@@ -72,6 +73,22 @@ func (ng NodeGroup) Validate() error {
 
 	if ng.KeyName == "" {
 		return errors.New("key name is required")
+	}
+
+	if err := ng.Kubernetes.Validate(); err != nil {
+		return fmt.Errorf("kubernetes: %w", err)
+	}
+
+	return nil
+}
+
+type NodeGroupKubernetes struct {
+	Version string
+}
+
+func (k NodeGroupKubernetes) Validate() error {
+	if k.Version == "" {
+		return errors.New("version is required")
 	}
 
 	return nil

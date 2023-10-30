@@ -178,13 +178,14 @@ func CreateCluster(ctx workflow.Context, input CreateClusterInput) (*CreateClust
 					ParameterKey:   aws.String("ClusterControlPlaneSecurityGroup"),
 					ParameterValue: aws.String(securityGroupIDs),
 				},
-			}
-
-			if ng.KeyName != "" {
-				stackParameters = append(stackParameters, cftypes.Parameter{
+				{
 					ParameterKey:   aws.String("KeyName"),
 					ParameterValue: aws.String(ng.KeyName),
-				})
+				},
+				{
+					ParameterKey:   aws.String("NodeImageIdSSMParam"),
+					ParameterValue: aws.String(fmt.Sprintf("/aws/service/eks/optimized-ami/%s/amazon-linux-2/recommended/image_id", ng.Kubernetes.Version)),
+				},
 			}
 
 			input := &cloudformation.CreateStackInput{
