@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 vars:
   BUILD_DIR: build
@@ -22,7 +22,7 @@ tasks:
   download-cftemplates:
     cmds:
       # https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html
-      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml -o pkg/cftemplates/vpc.yaml
+      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2020-10-29/amazon-eks-vpc-private-subnets.yaml -o worker/cftemplates/vpc.yaml
 
       # https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
-      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml -o pkg/cftemplates/nodegroup.yaml
+      - curl https://s3.us-west-2.amazonaws.com/amazon-eks/cloudformation/2022-12-23/amazon-eks-nodegroup.yaml | sed -e '291,295d' > worker/cftemplates/nodegroup.yaml

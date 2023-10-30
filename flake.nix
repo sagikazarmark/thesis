@@ -28,6 +28,8 @@
               awscli2
 
               kubectl
+
+              gnused
             ];
 
             env = {

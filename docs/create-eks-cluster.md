@@ -217,3 +217,7 @@ aws cloudformation wait stack-delete-complete --stack-name $CLUSTER_NAME-vpc
 - https://docs.aws.amazon.com/eks/latest/userguide/creating-a-vpc.html
 - https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 - https://docs.aws.amazon.com/eks/latest/userguide/update-stack.html
+
+## Notes
+
+When downloading the node group template, make sure to delete the update policy section from the autoscaling group.
