@@ -131,19 +131,19 @@ Also, the cluster upgrade process in my thesis is a lot more flexible compared t
 hence we create self-managed nodes.
 
 ```shell
-aws cloudformation create-stack --stack-name $CLUSTER_NAME-ng1 --template-body file://etc/aws/eks-nodegroup.yaml --capabilities CAPABILITY_IAM --parameters ParameterKey=ClusterName,ParameterValue=$CLUSTER_NAME ParameterKey=ClusterControlPlaneSecurityGroup,ParameterValue=$EKS_CLUSTER_SECURITY_GROUPS ParameterKey=NodeGroupName,ParameterValue=$CLUSTER_NAME-ng1 ParameterKey=KeyName,ParameterValue=\"$AWS_KEY_PAIR\" ParameterKey=VpcId,ParameterValue=$EKS_CLUSTER_VPC_ID ParameterKey=Subnets,ParameterValue=\"$EKS_CLUSTER_SUBNET_IDS\" ParameterKey=NodeImageIdSSMParam,ParameterValue=/aws/service/eks/optimized-ami/1.26/amazon-linux-2/recommended/image_id
+aws cloudformation create-stack --stack-name $CLUSTER_NAME-ng-1 --template-body file://etc/aws/eks-nodegroup.yaml --capabilities CAPABILITY_IAM --parameters ParameterKey=ClusterName,ParameterValue=$CLUSTER_NAME ParameterKey=ClusterControlPlaneSecurityGroup,ParameterValue=$EKS_CLUSTER_SECURITY_GROUPS ParameterKey=NodeGroupName,ParameterValue=$CLUSTER_NAME-ng-1 ParameterKey=KeyName,ParameterValue=\"$AWS_KEY_PAIR\" ParameterKey=VpcId,ParameterValue=$EKS_CLUSTER_VPC_ID ParameterKey=Subnets,ParameterValue=\"$EKS_CLUSTER_SUBNET_IDS\" ParameterKey=NodeImageIdSSMParam,ParameterValue=/aws/service/eks/optimized-ami/1.26/amazon-linux-2/recommended/image_id
 ```
 
 Wait for the CloudFormation stack to become ready:
 
 ```shell
-aws cloudformation wait stack-create-complete --stack-name $CLUSTER_NAME-ng1
+aws cloudformation wait stack-create-complete --stack-name $CLUSTER_NAME-ng-1
 ```
 
 Record the node instance role ARN:
 
 ```shell
-export EKS_NODE_INSTANCE_ROLE_ARN=$(aws cloudformation describe-stacks --stack-name $CLUSTER_NAME-ng1 --query 'Stacks[0].Outputs[?OutputKey==`NodeInstanceRole`].OutputValue' --output text)
+export EKS_NODE_INSTANCE_ROLE_ARN=$(aws cloudformation describe-stacks --stack-name $CLUSTER_NAME-ng-1 --query 'Stacks[0].Outputs[?OutputKey==`NodeInstanceRole`].OutputValue' --output text)
 ```
 
 Apply the `aws-auth` ConfigMap to the cluster:
@@ -171,13 +171,13 @@ To delete cluster and its resources, follow these steps:
 Delete the node group CloudFormation stack:
 
 ```shell
-aws cloudformation delete-stack --stack-name $CLUSTER_NAME-ng1
+aws cloudformation delete-stack --stack-name $CLUSTER_NAME-ng-1
 ```
 
 Wait for the CloudFormation stack to be deleted:
 
 ```shell
-aws cloudformation wait stack-delete-complete --stack-name $CLUSTER_NAME-ng1
+aws cloudformation wait stack-delete-complete --stack-name $CLUSTER_NAME-ng-1
 ```
 
 Delete the EKS cluster:
