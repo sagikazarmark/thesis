@@ -4,7 +4,9 @@ import (
 	"context"
 
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/autoscaling"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
+	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/eks"
 	"github.com/aws/smithy-go/middleware"
 	"go.temporal.io/sdk/activity"
@@ -33,6 +35,9 @@ func RegisterActivities(w worker.Worker) {
 		w.RegisterActivity(a.WaitForDeleteStack)
 
 		w.RegisterActivity(a.DescribeStacks)
+
+		w.RegisterActivity(a.UpdateStack)
+		w.RegisterActivity(a.WaitForUpdateStack)
 	}
 
 	// EKS
@@ -53,6 +58,39 @@ func RegisterActivities(w worker.Worker) {
 
 		w.RegisterActivity(a.DeleteCluster)
 		w.RegisterActivity(a.WaitForClusterDeleted)
+	}
+
+	// AutoScaling
+	{
+
+		cfg, err := config.LoadDefaultConfig(context.Background())
+		if err != nil {
+			panic(err)
+		}
+		client := autoscaling.NewFromConfig(cfg)
+
+		a := AutoScaling{
+			Client: client,
+		}
+
+		w.RegisterActivity(a.DetachInstances)
+	}
+
+	// EC2
+	{
+
+		cfg, err := config.LoadDefaultConfig(context.Background())
+		if err != nil {
+			panic(err)
+		}
+		client := ec2.NewFromConfig(cfg)
+
+		a := EC2{
+			Client: client,
+		}
+
+		w.RegisterActivity(a.TerminateInstances)
+		w.RegisterActivity(a.WaitForInstanceTerminated)
 	}
 }
 

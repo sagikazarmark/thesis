@@ -1,0 +1,5 @@
+{
+    "ClusterName": "mark-1",
+    "NodeGroupName": "ng-1",
+    "KubernetesVersion": "1.27"
+}

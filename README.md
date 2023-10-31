@@ -101,3 +101,9 @@ Similarly, you can also delete a cluster using the following command:
 ```shell
 tctl wf start --tq thesis --wt "DeleteCluster" --if examples/cluster.json
 ```
+
+To update a cluster, use the following command:
+
+```shell
+tctl wf start --tq thesis --wt "UpdateCluster" --if examples/update.json
+```

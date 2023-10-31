@@ -37,4 +37,16 @@ func RegisterActivities(w worker.Worker) {
 
 		w.RegisterActivity(a.CreateAuthConfigMap)
 	}
+
+	// Nodes
+	{
+
+		a := Nodes{
+			KubeClientFactory: kubeClientFactory,
+		}
+
+		w.RegisterActivity(a.ListNodes)
+		w.RegisterActivity(a.DeleteNode)
+		w.RegisterActivity(a.DrainNode)
+	}
 }

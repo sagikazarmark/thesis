@@ -98,3 +98,9 @@ kubectl get nodes -w
 ```
 
 Repeat the steps for each node in the node group.
+
+## Limitations
+
+This process cannot account for any cluster autoscaling solutions. If there is any, make sure to disable them first.
+
+Similarly, you have to make sure that the node group is in a healthy state (ie. there is no resizing or another upgrade process in progress).
