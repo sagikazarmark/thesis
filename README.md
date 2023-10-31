@@ -89,8 +89,8 @@ Creating one manually is possible by following [this](./docs/create-eks-cluster.
 
 It's much easier to use the provided Temporal workflow:
 
-```console
-$ tctl wf start --tq thesis --wt "CreateCluster" --if examples/cluster.json
+```shell
+tctl wf start --tq thesis --wt "CreateCluster" --if examples/cluster.json
 ```
 
 > [!NOTE]
@@ -98,6 +98,6 @@ $ tctl wf start --tq thesis --wt "CreateCluster" --if examples/cluster.json
 
 Similarly, you can also delete a cluster using the following command:
 
-```console
-$ tctl wf start --tq thesis --wt "DeleteCluster" --if examples/cluster.json
+```shell
+tctl wf start --tq thesis --wt "DeleteCluster" --if examples/cluster.json
 ```
