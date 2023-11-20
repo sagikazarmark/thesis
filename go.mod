@@ -3,7 +3,7 @@ module github.com/sagikazarmark/thesis
 go 1.21
 
 require (
-	github.com/aws/aws-sdk-go v1.46.6
+	github.com/aws/aws-sdk-go v1.48.0
 	github.com/aws/aws-sdk-go-v2 v1.21.2
 	github.com/aws/aws-sdk-go-v2/config v1.19.1
 	github.com/aws/aws-sdk-go-v2/service/autoscaling v1.32.0
