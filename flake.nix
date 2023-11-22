@@ -30,6 +30,7 @@
               kubectl
 
               gnused
+              d2
             ];
 
             env = {
