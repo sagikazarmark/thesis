@@ -12,9 +12,9 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/eks v1.33.2
 	github.com/aws/smithy-go v1.17.0
 	go.temporal.io/sdk v1.25.1
-	k8s.io/api v0.28.3
-	k8s.io/apimachinery v0.28.3
-	k8s.io/client-go v0.28.3
+	k8s.io/api v0.28.4
+	k8s.io/apimachinery v0.28.4
+	k8s.io/client-go v0.28.4
 	k8s.io/kubectl v0.28.3
 	sigs.k8s.io/aws-iam-authenticator v0.6.12
 )
