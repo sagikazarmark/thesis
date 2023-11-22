@@ -794,8 +794,8 @@ github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.4 h1:4GV0kKZzUxiWxSVpn/9
 github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.5.4/go.mod h1:dYvTNAggxDZy6y1AF7YDwXsPuHFy/VNEpEI/2dWK9IU=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.3.45 h1:hze8YsjSh8Wl1rYa1CJpRmXP21BvOBuc76YhW0HsuQ4=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.3.45/go.mod h1:lD5M20o09/LCuQ2mE62Mb/iSdSlCNuj6H5ci7tW7OsE=
-github.com/aws/aws-sdk-go-v2/service/autoscaling v1.32.0 h1:96UNFH/G80b93LKyiB+l5PSSAtwpuX9+8jYjSOoU4c4=
-github.com/aws/aws-sdk-go-v2/service/autoscaling v1.32.0/go.mod h1:wJGfoc78LfCPzl0VQPdU3wOXgyikdwXZKaV8i3Ot0UM=
+github.com/aws/aws-sdk-go-v2/service/autoscaling v1.35.2 h1:hTzkhQaZIZ7dZcoOr7Usookjcisc7QbtG4joDaX482o=
+github.com/aws/aws-sdk-go-v2/service/autoscaling v1.35.2/go.mod h1:lqA7X+35oZ+zRUnjeYqoYsHECFFSbCBbACVaVmMVz/w=
 github.com/aws/aws-sdk-go-v2/service/cloudformation v1.40.1 h1:gcJzqFpFy6no/GvMkA8L8ld3Wt/MygcJzj5xmpwfJuM=
 github.com/aws/aws-sdk-go-v2/service/cloudformation v1.40.1/go.mod h1:swqr+Ayq2Mv+l32CXjtrYrdNqMu5d0aSKeM63ud7G8M=
 github.com/aws/aws-sdk-go-v2/service/ec2 v1.137.0 h1:XCaAqb6eTyyzEKhLTXDmQRJyIIgLUPVHOOzWMQC5Vm8=
