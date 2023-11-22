@@ -12,10 +12,10 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/eks v1.33.2
 	github.com/aws/smithy-go v1.17.0
 	go.temporal.io/sdk v1.25.1
-	k8s.io/api v0.28.3
-	k8s.io/apimachinery v0.28.3
-	k8s.io/client-go v0.28.3
-	k8s.io/kubectl v0.28.3
+	k8s.io/api v0.28.4
+	k8s.io/apimachinery v0.28.4
+	k8s.io/client-go v0.28.4
+	k8s.io/kubectl v0.28.4
 	sigs.k8s.io/aws-iam-authenticator v0.6.12
 )
 
@@ -110,8 +110,8 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/cli-runtime v0.28.3 // indirect
-	k8s.io/component-base v0.28.3 // indirect
+	k8s.io/cli-runtime v0.28.4 // indirect
+	k8s.io/component-base v0.28.4 // indirect
 	k8s.io/klog/v2 v2.100.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20230717233707-2695361300d9 // indirect
 	k8s.io/utils v0.0.0-20230406110748-d93618cff8a2 // indirect
