@@ -18,14 +18,14 @@ import (
 	v1 "k8s.io/api/core/v1"
 )
 
-// UpdateClusterInput contains the input parameters for the [UpdateCluster] workflow.
-type UpdateClusterInput struct {
+// UpdateNodeGroupInput contains the input parameters for the [UpdateNodeGroup] workflow.
+type UpdateNodeGroupInput struct {
 	ClusterName       string
 	NodeGroupName     string
 	KubernetesVersion string
 }
 
-func (i UpdateClusterInput) Validate() error {
+func (i UpdateNodeGroupInput) Validate() error {
 	if i.ClusterName == "" {
 		return errors.New("cluster name is required")
 	}
@@ -41,11 +41,11 @@ func (i UpdateClusterInput) Validate() error {
 	return nil
 }
 
-// UpdateClusterOutput contains the return parameters for the [UpdateCluster] workflow.
-type UpdateClusterOutput struct{}
+// UpdateNodeGroupOutput contains the return parameters for the [UpdateNodeGroup] workflow.
+type UpdateNodeGroupOutput struct{}
 
-// UpdateCluster creates a new EKS cluster.
-func UpdateCluster(ctx workflow.Context, input UpdateClusterInput) (*UpdateClusterOutput, error) {
+// UpdateNodeGroup updates a node group in an EKS cluster to a new Kubernetes version.
+func UpdateNodeGroup(ctx workflow.Context, input UpdateNodeGroupInput) (*UpdateNodeGroupOutput, error) {
 	if err := input.Validate(); err != nil {
 		return nil, err
 	}
