@@ -1,0 +1,58 @@
+shape: sequence_diagram
+
+Operator: {
+  label: Operator
+  shape: person
+}
+
+Temporal: {
+ shape: image
+ icon: https://temporal.io/images/logos/logo-temporal-with-copy.svg
+}
+
+Worker
+
+CloudFormation: {
+  label: Amazon CloudFormation
+  shape: image
+  icon: https://icons.terrastruct.com/aws%2FManagement%20&%20Governance%2FAWS-CloudFormation_light-bg.svg
+}
+
+Kubernetes: {
+  label: Kubernetes API
+  shape: image
+  icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+}
+
+AutoScaling: {
+  label: Amazon AutoScaling
+  shape: image
+  icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-EC2-Auto-Scaling_light-bg.svg
+}
+
+EC2: {
+  label: Amazon EC2
+  shape: image
+  icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-EC2_light-bg.svg
+}
+
+Operator -> Temporal: Start upgrade
+Temporal -> Worker: Start upgrade workflow
+
+Worker -> CloudFormation: Upgrade Kubernetes version
+CloudFormation -> Worker: Wait for CloudFormation Stack\nupdate to finish
+
+Worker -> Kubernetes: List nodes
+
+Loop until all nodes are upgraded: {
+  Worker -> Kubernetes: Cordon node
+  Worker -> Kubernetes: Drain node
+  Kubernetes -> Worker: Wait for workloads to be rescheduled
+  Worker -> Kubernetes: Delete node
+  Worker -> AutoScaling: Detach instance from Auto Scaling group
+  AutoScaling -> EC2: Launch new instance
+  Worker -> EC2: Terminate old instance
+  Worker -> Kubernetes: Wait for new node to join
+}
+
+Worker -> Temporal: Workflow completed

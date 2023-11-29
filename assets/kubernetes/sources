@@ -1,0 +1,2 @@
+components-of-kubernetes.svg: https://kubernetes.io/docs/concepts/overview/components/
+kubeadm-ha-topology-stacked-etcd.svg: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/ha-topology/

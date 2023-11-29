@@ -1,0 +1,18 @@
+shape: sequence_diagram
+
+User: {
+  label: User
+  shape: person
+}
+
+Temporal: {
+  shape: image
+  icon: https://temporal.io/images/logos/logo-temporal-with-copy.svg
+}
+
+Worker
+
+User -> Temporal: Start upgrade workflow
+Temporal -> Worker: Workflow task
+Worker.Complete workflow
+Worker -> Temporal: Workflow completed

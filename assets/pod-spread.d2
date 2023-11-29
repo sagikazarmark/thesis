@@ -1,0 +1,60 @@
+direction: up
+
+classes: {
+  nodePool: {
+    icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+  }
+
+  node: {
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/svg/infrastructure_components/unlabeled/node.svg
+  }
+
+  pod: {
+    shape: image
+    icon: https://raw.githubusercontent.com/kubernetes/community/master/icons/svg/resources/unlabeled/pod.svg
+  }
+}
+
+Kubernetes: {
+  label: Cluster
+  icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+
+  NodePoolA: {
+    label: Node pool A
+    class: nodePool
+
+    Node1: {
+      label: Node 1
+      class: node
+
+      PodA1: {
+        label: Pod A1
+        class: pod
+      }
+    }
+    Node2: {
+      label: Node 2
+      class: node
+
+      PodA2: {
+        label: Pod A2
+        class: pod
+      }
+    }
+  }
+
+  NodePoolB: {
+    label: Node pool B
+    class: nodePool
+
+    Node1: {
+      label: Node 1
+      class: node
+
+      PodA3: {
+        label: Pod A3
+        class: pod
+      }
+    }
+  }
+}

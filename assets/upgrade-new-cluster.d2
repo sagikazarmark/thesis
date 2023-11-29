@@ -1,0 +1,30 @@
+shape: sequence_diagram
+
+Operator: {
+  label: Operator
+  shape: person
+}
+
+EKS: {
+  label: Amazon EKS
+  shape: image
+  icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-Elastic-Kubernetes-Service_light-bg.svg
+}
+
+Kubernetes: {
+  label: Kubernetes
+  shape: image
+  icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+}
+
+Route53: {
+  label: Amazon Route53
+  shape: image
+  icon: https://icons.terrastruct.com/aws%2FNetworking%20&%20Content%20Delivery%2FAmazon-Route-53_light-bg.svg
+}
+
+Operator -> EKS: Launch new cluster
+Operator -> Kubernetes: Bootstrap cluster
+Operator -> Kubernetes: Deploy all workloads
+Operator -> Route53: Route traffic to new cluster
+Operator -> EKS: Terminate old cluster

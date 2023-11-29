@@ -1,0 +1,88 @@
+direction: up
+
+classes: {
+  nodePool: {
+    icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+  }
+
+  autoScalingGroup: {
+    icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-EC2_Auto-Scaling_light-bg.svg
+
+    style: {
+      border-radius: 5
+      stroke-dash: 5
+      stroke-width: 3
+      stroke: "#c96d2e"
+    }
+  }
+
+  node: {
+    shape: image
+    icon: https://icons.terrastruct.com/aws%2FCompute%2F_Instance%2FAmazon-EC2_Instance_light-bg.svg
+  }
+}
+
+Kubernetes: {
+  label: Cluster
+  icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+
+  ControlPlane: {
+    label: Control Plane
+    icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-Elastic-Kubernetes-Service_light-bg.svg
+
+    style: {
+      stroke: "#c96d2e"
+    }
+
+    KubernetesAPI: {
+      label: Kubernetes API
+      icon: https://icons.terrastruct.com/azure%2F_Companies%2FKubernetes.svg
+    }
+  }
+
+  NodePoolA: {
+    label: Node pool A
+    class: nodePool
+
+    AutoScalingGroupA: {
+      label: Auto Scaling group A
+      class: autoScalingGroup
+
+      Node1: {
+        label: Node 1
+        class: node
+      }
+      Node2: {
+        label: Node 2
+        class: node
+      }
+      NodeDot: {
+        label: ...
+        class: node
+      }
+      NodeN: {
+        label: Node N
+        class: node
+      }
+    }
+  }
+
+  NodePoolB: {
+    label: Node pool B
+    class: nodePool
+
+    AutoScalingGroupA: {
+      label: Auto Scaling group B
+      class: autoScalingGroup
+
+      NodeDot: {
+        label: ...
+        class: node
+      }
+    }
+  }
+}
+
+Kubernetes.NodePoolA.AutoScalingGroupA.Node1 -> Kubernetes.ControlPlane.KubernetesAPI
+Kubernetes.NodePoolA.AutoScalingGroupA.Node2 -> Kubernetes.ControlPlane.KubernetesAPI
+Kubernetes.NodePoolA.AutoScalingGroupA.NodeN -> Kubernetes.ControlPlane.KubernetesAPI
